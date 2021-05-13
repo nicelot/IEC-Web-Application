@@ -1,0 +1,42 @@
+<html>
+    <head>
+        <title>Voter Management</title>
+    </head>
+    <body>
+        <center>
+            <div style="background-color: gray; width: 200px; height: 280px;margin-top:25px" id="Register Voter">
+                <h2>Register voter</h2>
+                <form method="POST" action="registerVoter.php">
+                    <label id="ID-Label">ID:</label>
+                    <input id="ID" type="text"><br/>
+                    <label id="Name-Label">Name: </label>
+                    <input id="Name" type="text"><br/>
+                    <label id="Municipality-Label">Municipality: </label>
+                    <input id="Municipality" type="text"><br/>
+                    <label id="Email-Label">Email: </label>
+                    <input id="Email" type="text"><br/>
+                    <label id="Phone-Label">Phone: </label>
+                    <input id="Phone" type="text"><br/>
+                    <input type="submit" value="Register">
+                </form>
+            </div>
+            <div style="background-color: gray; width: 200px; height: 325px;margin-top:25px" id="Register Voter">
+                <h2>Update voter</h2>
+                <p style="margin-top:-20px">Update voter by ID, leave field blank to remain unchanged.</p>
+                <form method="POST" action="registerVoter.php">
+                    <label id="ID-Label">ID of Voter:</label>
+                    <input id="ID" type="text"><br/><br/>
+                    <label id="Name-Label">Name: </label>
+                    <input id="Name" type="text"><br/>
+                    <label id="Municipality-Label">Municipality: </label>
+                    <input id="Municipality" type="text"><br/>
+                    <label id="Email-Label">Email: </label>
+                    <input id="Email" type="text"><br/>
+                    <label id="Phone-Label">Phone: </label>
+                    <input id="Phone" type="text"><br/>
+                    <input type="submit" value="Register">
+                </form>
+            </div>
+        </center>
+    </body>
+</html>
