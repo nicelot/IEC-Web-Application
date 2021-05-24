@@ -112,3 +112,23 @@ VALUES ('CPT', 'City of Cape Town Metropolitan Municipality','Metropolitan'),
        ('LIM476', 'Fetakgomo Tubatse Local Municipality','Local'),
        ('WC044', 'George Local Municipality','Local'),
        ('NC074', 'Kareeberg Local Municipality','Local');
+
+
+INSERT INTO User (UserID, Type, Name, Email)
+VALUES (1, 'Staff','Jane Doe', 'janedoe@gmail.com'),
+       (2, 'Staff','Mary Sue', 'marysue@gmail.com'),
+       (3, 'Staff','Kevin Smith', 'kevinsmith@gmail.com'),
+       (4, 'Voter','Taylor Adams', 'tayloradams@gmail.com'),
+       (5, 'Voter','John Johnson', 'johnjohnson@gmail.com'),
+       (6, 'Voter','Anne Anderson', 'anneanderson@gmail.com');
+
+
+INSERT INTO Staff (StaffID, UserID, Name, Surname, Password, Email, PhoneNr)
+VALUES (1, 1, 'Jane', 'Doe','password','janedoe@gmail.com', 0825194011),
+(2, 2,'Mary', 'Sue', '54321' 'marysue@gmail.com', 0723484019),
+(3, 3,'Kevin', 'Smith', '9999', 'kevinsmith@gmail.com', 0825299456);
+
+INSERT INTO Voter (NationalID, Name, Surname, Password, Email, PhoneNr, MunicipalityId, UserId, has_voted)
+VALUES (1111111111111, 'Taylor','Adams', 'password1', 'tayloradams@gmail.com', 0126547890, 'DC35', 4, 0),
+(9807536795313, 'John','Johnson', 'password2', 'johnjohnson@gmail.com', 0716783407, 'KZN238', 5, 0),
+(7865093175490, 'Anne','Anderson', 'password3', 'anneanderson@gmail.com', 0115609835, 'JHB', 6, 0);
