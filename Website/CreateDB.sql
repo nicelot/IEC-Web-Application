@@ -35,7 +35,7 @@ CREATE TABLE Voter(
     Password varchar(45),
     Email varchar(45),
     PhoneNr int,
-    MunicipalityId int NOT NULL,
+    MunicipalityId varchar(45) NOT NULL,
     VoteId int NOT NULL,
     UserId int NOT NULL,
     has_voted BIT NOT NULL DEFAULT (0),
@@ -49,7 +49,7 @@ CREATE TABLE Voter(
 );
 
 CREATE TABLE Municipality(
-    MunicipalityID int NOT NULL,
+    MunicipalityID varchar(45) NOT NULL,
     Name varchar(45),
     Type varchar(45) NOT NULL,
     PRIMARY KEY (MunicipalityID)
@@ -67,7 +67,7 @@ CREATE TABLE Candidate(
     Surname varchar(45),
     PartyId int NOT NULL,
     Type varchar(45),
-    MunicipalityId int NOT NULL,
+    MunicipalityId varchar(45) NOT NULL,
     PRIMARY KEY (CandidateID),
     CONSTRAINT FK_MunicipalityIdC FOREIGN KEY (MunicipalityId)
       REFERENCES Municipality(MunicipalityID),
@@ -77,7 +77,7 @@ CREATE TABLE Candidate(
 
 CREATE TABLE Results(
     ResultID int NOT NULL,
-    MunicipalityId int NOT NULL,
+    MunicipalityId varchar(45) NOT NULL,
     PartyId int NOT NULL,
     PRIMARY KEY (ResultID),
     CONSTRAINT FK_PartyIdR FOREIGN KEY (PartyId)
@@ -86,7 +86,7 @@ CREATE TABLE Results(
       REFERENCES Municipality(MunicipalityID)
 );
 
-INSERT INTO Municipalities (MunicipalityID, Name, Type)
+INSERT INTO Municipality (MunicipalityID, Name, Type)
 VALUES ('CPT', 'City of Cape Town Metropolitan Municipality','Metropolitan'),
        ('JHB', 'City of Johannesburg Metropolitan Municipality','Metropolitan'),
        ('TSH', 'City of Tshwane Metropolitan Municipality','Metropolitan'),
