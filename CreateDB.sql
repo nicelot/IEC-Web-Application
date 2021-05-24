@@ -1,12 +1,19 @@
 CREATE SCHEMA IEC_DB;
 
+CREATE TABLE Votes(
+		VoteID int NOT NULL,
+		Type varchar(45) NOT NULL,
+		Candidate varchar(45) NOT NULL,
+		PRIMARY KEY (VoteID)
+);
 
 CREATE TABLE User(
 		UserID int NOT NULL,
 		Type varchar(45) NOT NULL,
 		Name varchar(45),
+		Email varchar(45),
 		PRIMARY KEY (UserID)
-	);
+);
 
 CREATE TABLE Staff(
 		StaffID int NOT NULL,
@@ -18,42 +25,8 @@ CREATE TABLE Staff(
 		PhoneNr int,
 		PRIMARY KEY (StaffID),
 		CONSTRAINT FK_StaffUserId FOREIGN KEY (UserId)
-    		REFERENCES User(UserID)
-	);
-
-CREATE TABLE Municipality(
-		MunicipalityID int NOT NULL,
-		Name varchar(45),
-		Type varchar(45) NOT NULL,
-		PRIMARY KEY (MunicipalityID)
-	);
-
-CREATE TABLE Party(
-		PartyID int NOT NULL,
-		Name varchar(45) NOT NULL,
-		PRIMARY KEY (PartyID)
-	);
-
-CREATE TABLE Candidate(
-		CandidateID int NOT NULL,
-		Name varchar(45),
-		Surname varchar(45),
-		PartyId int NOT NULL,
-		Type varchar(45),
-		MunicipalityId int NOT NULL,
-		PRIMARY KEY (CandidateID),
-		CONSTRAINT FK_MunicipalityIdC FOREIGN KEY (MunicipalityId)
-    		REFERENCES Municipality(MunicipalityID),
-		CONSTRAINT FK_PartyId FOREIGN KEY (PartyId)
-    		REFERENCES Party(PartyID)
-	);
-
-CREATE TABLE Votes(
-		VoteID int NOT NULL,
-		Type varchar(45) NOT NULL,
-		Candidate varchar(45) NOT NULL,
-		PRIMARY KEY (VoteID)
-	);
+    	REFERENCES User(UserID)
+);
 
 CREATE TABLE Voter(
 		NationalID int NOT NULL,
@@ -68,21 +41,48 @@ CREATE TABLE Voter(
 		has_voted BIT NOT NULL DEFAULT (0),
 		PRIMARY KEY (NationalID),
 		CONSTRAINT FK_VoteIDVr FOREIGN KEY (VoteID)
-    		REFERENCES Votes(VoteID),
+    	REFERENCES Votes(VoteID),
 		CONSTRAINT FK_MunicipalityIdVr FOREIGN KEY (MunicipalityId)
-    		REFERENCES Municipality(MunicipalityID),
+    	REFERENCES Municipality(MunicipalityID),
 		CONSTRAINT FK_VoterUserId FOREIGN KEY (UserId)
-    		REFERENCES User(UserID)
-	);
+    	REFERENCES User(UserID)
+);
+
+CREATE TABLE Municipality(
+		MunicipalityID int NOT NULL,
+		Name varchar(45),
+		Type varchar(45) NOT NULL,
+		PRIMARY KEY (MunicipalityID)
+);
+
+CREATE TABLE Party(
+		PartyID int NOT NULL,
+		Name varchar(45) NOT NULL,
+		PRIMARY KEY (PartyID)
+);
+
+CREATE TABLE Candidate(
+		CandidateID int NOT NULL,
+		Name varchar(45),
+		Surname varchar(45),
+		PartyId int NOT NULL,
+		Type varchar(45),
+		MunicipalityId int NOT NULL,
+		PRIMARY KEY (CandidateID),
+		CONSTRAINT FK_MunicipalityIdC FOREIGN KEY (MunicipalityId)
+    	REFERENCES Municipality(MunicipalityID),
+		CONSTRAINT FK_PartyId FOREIGN KEY (PartyId)
+   		REFERENCES Party(PartyID)
+);
 
 CREATE TABLE Results(
 		ResultID int NOT NULL,
 		MunicipalityId int NOT NULL,
 		PartyId int NOT NULL,
+		PRIMARY KEY (ResultID),
 		CONSTRAINT FK_PartyIdR FOREIGN KEY (PartyId)
-    		REFERENCES Party(PartyID),
+    	REFERENCES Party(PartyID),
 		CONSTRAINT FK_MunicipalityIdR FOREIGN KEY (MunicipalityId)
-    		REFERENCES Municipality(MunicipalityID),
-		PRIMARY KEY (ResultID)
-	);
+    	REFERENCES Municipality(MunicipalityID)
+);
 
