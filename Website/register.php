@@ -14,4 +14,4 @@
             $fmsg ="User Registration Failed";
         }
     }
-    ?>
+?>
