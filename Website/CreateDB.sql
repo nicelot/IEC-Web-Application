@@ -29,19 +29,16 @@ CREATE TABLE Staff(
 );
 
 CREATE TABLE Voter(
-    NationalID int NOT NULL,
+    NationalID varchar(13) NOT NULL,
     Name varchar(45),
     Surname varchar(45),
     Password varchar(45),
     Email varchar(45),
     PhoneNr int,
     MunicipalityId varchar(45) NOT NULL,
-    VoteId int NOT NULL,
     UserId int NOT NULL,
     has_voted BIT NOT NULL DEFAULT (0),
     PRIMARY KEY (NationalID),
-    CONSTRAINT FK_VoteIDVr FOREIGN KEY (VoteID)
-      REFERENCES Votes(VoteID),
     CONSTRAINT FK_MunicipalityIdVr FOREIGN KEY (MunicipalityId)
       REFERENCES Municipality(MunicipalityID),
     CONSTRAINT FK_VoterUserId FOREIGN KEY (UserId)
@@ -129,6 +126,6 @@ VALUES (1, 1, 'Jane', 'Doe', 'password', 'janedoe@gmail.com', 0825194011),
        (3, 3, 'Kevin', 'Smith', '9999', 'kevinsmith@gmail.com', 0825299456);
 
 INSERT INTO Voter (NationalID, Name, Surname, Password, Email, PhoneNr, MunicipalityId, UserId, has_voted)
-VALUES (1111111111111, 'Taylor','Adams', 'password1', 'tayloradams@gmail.com', 0126547890, 'DC35', 4, 0),
-(9807536795313, 'John','Johnson', 'password2', 'johnjohnson@gmail.com', 0716783407, 'KZN238', 5, 0),
-(7865093175490, 'Anne','Anderson', 'password3', 'anneanderson@gmail.com', 0115609835, 'JHB', 6, 0);
+VALUES ('1111111111111', 'Taylor','Adams', 'password1', 'tayloradams@gmail.com', 0126547890, 'DC35', 4, 0),
+('9807536795313', 'John','Johnson', 'password2', 'johnjohnson@gmail.com', 0716783407, 'KZN238', 5, 0),
+('7865093175490', 'Anne','Anderson', 'password3', 'anneanderson@gmail.com', 0115609835, 'JHB', 6, 0);
