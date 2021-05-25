@@ -1,18 +1,6 @@
 <?php
-	$server= "localhost";
-	$user = "IEC";
-	$pass = "IEC_PASSWORD";
-	$db = "IEC_DB";
-
-	// Create connection
-	$conn = new mysqli($server, $user, $pass, $db);
-	session_start();
-
-	// Check connection
-	if ($conn->connect_error) {
-		die("Connection failed: " . $conn->connect_error);
-	}
-
+	require('connect.php');
+	start_session();
 	// LOGIN AND ASSIGN AUTH
 	$sql = "SELECT Type, Email FROM User WHERE Email='".$_POST['Email']."';";
 	$res = $conn->query($sql);
