@@ -27,7 +27,7 @@
 	        $result = $conn->query($query);
 	        $muniID = $result->fetch_assoc()['MunicipalityID'];
 
-	        $query = "INSERT INTO `Voter` (NationalID, Name, Surname, Password, Email, PhoneNr, MunicipalityId, UserId, has_voted) VALUES ('$id', '$name', '$surname', '$password', '$email', '$phone', '$muniID', '$UserID', 0)";
+	        $query = "INSERT INTO `Voter` (NationalID, Name, Surname, Password, Email, PhoneNr, MunicipalityId, UserId, has_voted) VALUES ('$id', '$name', '$surname', '$password', '$email', '$phone', '$muniID', '$UserID', 0);";
 	        $result = $conn->query($query);
 	        if($result){
 	        	$msg = "User registered!";
@@ -46,15 +46,41 @@
             $password = $_POST['Password'];
             $action = $_POST['Action'];
 
-            $query = "SELECT UserID FROM User WHERE Email='$email'";
-            $result = $conn->query($query);
-            $UserID = $result->fetch_assoc()['UserID'];
+            if($name == ""){
+                $query = "SELECT Name FROM Voter WHERE NationalID='$id';";
+                $result = $conn->query($query);
+                $name = $result->fetch_assoc()['Name'];
+            }
 
-            $query = "SELECT MunicipalityID FROM Municipality WHERE Name='$municipality'";
-            $result = $conn->query($query);
-            $muniID = $result->fetch_assoc()['MunicipalityID'];
+            if($municipality == ""){
+                $query = "SELECT MunicipalityId FROM Voter WHERE NationalID='$id';";
+                $result = $conn->query($query);
+                $muniID = $result->fetch_assoc()['MunicipalityId'];
+            }else{
+                $query = "SELECT MunicipalityID FROM Municipality WHERE Name='$municipality';";
+                $result = $conn->query($query);
+                $muniID = $result->fetch_assoc()['MunicipalityID'];
+            }
 
-            $query = "INSERT INTO `Voter` (NationalID, Name, Surname, Password, Email, PhoneNr, MunicipalityId, UserId, has_voted) VALUES ('$id', '$name', '$surname', '$password', '$email', '$phone', '$muniID', '$UserID', 0)";
+            if($surname == ""){
+                $query = "SELECT Surname FROM Voter WHERE NationalID='$id';";
+                $result = $conn->query($query);
+                $surname = $result->fetch_assoc()['Surname'];
+            }
+
+            if($email == ""){
+                $query = "SELECT Email FROM Voter WHERE NationalID='$id';";
+                $result = $conn->query($query);
+                $email = $result->fetch_assoc()['Email'];
+            }
+
+            if($phone == ""){
+                $query = "SELECT PhoneNr FROM Voter WHERE NationalID='$id';";
+                $result = $conn->query($query);
+                $phone = $result->fetch_assoc()['PhoneNr'];
+            }
+
+            $query = "UPDATE Voter SET Name='$name', Surname='$surname', Email='$email', PhoneNr='$phone', MunicipalityId='$muniID' WHERE NationalID='$id';";
             $result = $conn->query($query);
             if($result){
                 $msg = "User updated!";
@@ -109,7 +135,7 @@
                     <input name="Email" type="text"><br>
                     <label id="Phone-Label">Phone: </label><br>
                     <input name="Phone" type="text"><br><br>
-                    <input type="submit" value="Register">
+                    <input type="submit" value="Update">
                     <input hidden name="Action" value="edit">
                 </form>
             </div>
