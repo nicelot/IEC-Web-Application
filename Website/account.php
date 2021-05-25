@@ -82,7 +82,6 @@
 <nav class="navtop">
   <div>
     <h1>Electoral Commission of South Africa</h1>
-    <a href="results.php"><i class="fas fa-poll-h"></i>Results</a>
   </div>
 </nav>
 <center>
