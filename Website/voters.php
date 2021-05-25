@@ -4,7 +4,7 @@
         header("location: login.php");
     }
 	require('connect.php');
-    // If the values are posted, insert them into the database.
+    
     if(isset($_POST['Action'])){
     	if($_POST['Action'] == 'create'){
 		    $id = $_POST['ID'];
