@@ -47,7 +47,7 @@
 								echo '<h3 style="color: red">Incorrect email or password.</h3>';
 							}
 						}
-					}else if($_POST['Email'] != ""){
+					}else if(isset($_POST['Email'])){
 						// USER NOT FOUND
 						echo '<h3 style="color: red">Incorrect email or password.</h3>';
 					}
