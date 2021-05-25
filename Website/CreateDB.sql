@@ -50,7 +50,7 @@ CREATE TABLE Voter(
 
 CREATE TABLE Municipality(
     MunicipalityID varchar(45) NOT NULL,
-    Name varchar(45),
+    Name varchar(64),
     Type varchar(45) NOT NULL,
     PRIMARY KEY (MunicipalityID)
 );
@@ -124,9 +124,9 @@ VALUES (1, 'Staff','Jane Doe', 'janedoe@gmail.com'),
 
 
 INSERT INTO Staff (StaffID, UserID, Name, Surname, Password, Email, PhoneNr)
-VALUES (1, 1, 'Jane', 'Doe','password','janedoe@gmail.com', 0825194011),
-(2, 2,'Mary', 'Sue', '54321' 'marysue@gmail.com', 0723484019),
-(3, 3,'Kevin', 'Smith', '9999', 'kevinsmith@gmail.com', 0825299456);
+VALUES (1, 1, 'Jane', 'Doe', 'password', 'janedoe@gmail.com', 0825194011),
+       (2, 2, 'Mary', 'Sue', '54321', 'marysue@gmail.com', 0723484019),
+       (3, 3, 'Kevin', 'Smith', '9999', 'kevinsmith@gmail.com', 0825299456);
 
 INSERT INTO Voter (NationalID, Name, Surname, Password, Email, PhoneNr, MunicipalityId, UserId, has_voted)
 VALUES (1111111111111, 'Taylor','Adams', 'password1', 'tayloradams@gmail.com', 0126547890, 'DC35', 4, 0),
