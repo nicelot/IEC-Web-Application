@@ -6,7 +6,7 @@
 	  <center>
 			<div style="margin-top: 100px;padding-top:15px;padding-bottom:20px;width: 300px;height: 250px;background-color: grey">
 				<h2>IEC</h2>
-				<form method="post" action="login.php">
+				<form method="post" action="login.php" enctype="multipart/form-data">
 				    <div>
 					    <label><b>Email</b></label><br>
 					    <input name="Email" type="text" placeholder="Enter Email" required><br>
@@ -19,19 +19,19 @@
 					require('connect.php');
 					session_start();
 					// LOGIN AND ASSIGN AUTH
-					$sql = "SELECT Type, Email FROM User WHERE Email='".$_POST['Email']."';";
+					$sql = "SELECT Type, Email FROM User WHERE Email='" . $_POST['Email'] . "';";
 					$res = $conn->query($sql);
 					if($res->num_rows > 0){
 						// USER EXISTS
 						$user = $res->fetch_assoc();
 						if($user['Type'] == 'Staff'){
-							$sql = "SELECT * FROM Staff WHERE email='".$_POST['Email']."';";
+							$sql = "SELECT * FROM Staff WHERE email='" . $_POST['Email'] . "';";
 							$res = $conn->query($sql);
 							$row = $res->fetch_assoc();
 							if($row['Password'] == $_POST['Password']){
 								$_SESSION['type'] = 'staff';
 								$_SESSION['auth'] = 'true';
-								header("Location: staff.html");
+								header("Location: staff.php");
 							}else{
 								echo '<h3 style="color: red">Incorrect email or password.</h3>';
 							}
@@ -42,7 +42,7 @@
 							if($row['Password'] == $_POST['Password']){
 								$_SESSION['type'] = 'voter';
 								$_SESSION['auth'] = 'true';
-								header("Location: vote.html");
+								header("Location: voter.php");
 							}else{
 								echo '<h3 style="color: red">Incorrect email or password.</h3>';
 							}
