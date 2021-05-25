@@ -4,7 +4,7 @@
         header("location: login.php");
     }
 	require('connect.php');
-    
+
     if(isset($_POST['Action'])){
     	if($_POST['Action'] == 'create'){
 		    $id = $_POST['ID'];
@@ -44,6 +44,14 @@
             $phone = $_POST['Phone'];
             $password = $_POST['Password'];
 
+            $query = "SELECT Email FROM Voter WHERE NationalID='$id';";
+            $result = $conn->query($query);
+            $userEmail = $result->fetch_assoc()['Email'];
+
+            $query = "SELECT UserID FROM User WHERE Email='$userEmail';";
+            $result = $conn->query($query);
+            $userid = $result->fetch_assoc()['UserID'];
+
             if(!isset($_POST['Name'])){
                 $query = "SELECT Name FROM Voter WHERE NationalID='$id';";
                 $result = $conn->query($query);
@@ -79,6 +87,9 @@
             }
 
             $query = "UPDATE Voter SET Name='$name', Surname='$surname', Email='$email', PhoneNr='$phone', MunicipalityId='$muniID' WHERE NationalID='$id';";
+            $result = $conn->query($query);
+
+            $query = "UPDATE User SET Name='$name', Email='$email' WHERE UserID='$userid';";
             $result = $conn->query($query);
             if($result){
                 $msg = "User updated!";

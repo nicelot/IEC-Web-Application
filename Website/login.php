@@ -25,7 +25,7 @@
 						// USER EXISTS
 						$user = $res->fetch_assoc();
 						if($user['Type'] == 'Staff'){
-							$sql = "SELECT * FROM Staff WHERE email='" . $_POST['Email'] . "';";
+							$sql = "SELECT * FROM Staff WHERE Email='" . $_POST['Email'] . "';";
 							$res = $conn->query($sql);
 							$row = $res->fetch_assoc();
 							if($row['Password'] == $_POST['Password']){
@@ -35,8 +35,8 @@
 							}else{
 								echo '<h3 style="color: red">Incorrect email or password.</h3>';
 							}
-						}else{
-							$sql = "SELECT * FROM Voter WHERE email='".$_POST['Email']."';";
+						}else if($user['Type'] == 'Voter'){
+							$sql = "SELECT * FROM Voter WHERE Email='".$_POST['Email']."';";
 							$res = $conn->query($sql);
 							$row = $res->fetch_assoc();
 							if($row['Password'] == $_POST['Password']){

@@ -128,7 +128,7 @@
                     <input name="Municipality" type="text"><br>
                     <label id="Party-Label">Party: </label><br>
                     <input name="Party" type="text"><br><br>
-                    <input type="submit" value="Register">
+                    <input type="submit" value="Update">
                     <input hidden name="Action" value="edit">
                 </form>
             </div>
