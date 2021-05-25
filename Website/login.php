@@ -14,27 +14,38 @@
 	}
 
 	// LOGIN AND ASSIGN AUTH
-	$user = $conn->query("SELECT Type, Email FROM User WHERE Email='"+$_POST['Email']+"';")->fetch_assoc();
-	if($user->num_rows > 0){
+	$sql = "SELECT Type, Email FROM User WHERE Email='".$_POST['Email']."';";
+	$res = $conn->query($sql);
+	if($res->num_rows > 0){
 		// USER EXISTS
+		$user = $res->fetch_assoc();
 		if($user['Type'] == 'Staff'){
-			$res = $conn->query("SELECT * FROM Staff WHERE email='"+$_POST['Email']+"';")->fetch_assoc();
-			if($res['Password'] == $_POST['Password']){
+			$sql = "SELECT * FROM Staff WHERE email='".$_POST['Email']."';";
+			$res = $conn->query($sql);
+			$row = $res->fetch_assoc();
+			if($row['Password'] == $_POST['Password']){
 				$_SESSION['type'] = 'staff';
 				$_SESSION['auth'] = 'true';
-				header("Location: localhost/staff.html");
+				header("Location: staff.html");
+			}else{
+				echo "Wrong password for account ".$row['email']. "!";
 			}
 		}else{
-			$res = $conn->query("SELECT * FROM Voter WHERE email='"+$_POST['Email']+"';")->fetch_assoc();
-			if($res['Password'] == $_POST['Password']){
+			$sql = "SELECT * FROM Voter WHERE email='".$_POST['Email']."';";
+			$res = $conn->query($sql);
+			$row = $res->fetch_assoc();
+			if($row['Password'] == $_POST['Password']){
 				$_SESSION['type'] = 'voter';
 				$_SESSION['auth'] = 'true';
-				header("Location: localhost/voter.html");
+				header("Location: vote.html");
+			}else{
+				echo "Wrong password for account ".$row['email']. "!";
 			}
 		}
 	}else{
 		// USER NOT FOUND
-		echo "USER NOT FOUND!";
+		//echo "user not found";
+		header("Location: login.html");
 	}
 
 	$conn->close();
