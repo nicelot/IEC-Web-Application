@@ -46,13 +46,13 @@
             $password = $_POST['Password'];
             $action = $_POST['Action'];
 
-            if($name == ""){
+            if(!isset($_POST['Name'])){
                 $query = "SELECT Name FROM Voter WHERE NationalID='$id';";
                 $result = $conn->query($query);
                 $name = $result->fetch_assoc()['Name'];
             }
 
-            if($municipality == ""){
+            if(!isset($_POST['Municipality'])){
                 $query = "SELECT MunicipalityId FROM Voter WHERE NationalID='$id';";
                 $result = $conn->query($query);
                 $muniID = $result->fetch_assoc()['MunicipalityId'];
@@ -62,19 +62,19 @@
                 $muniID = $result->fetch_assoc()['MunicipalityID'];
             }
 
-            if($surname == ""){
+            if(!isset($_POST['Surname'])){
                 $query = "SELECT Surname FROM Voter WHERE NationalID='$id';";
                 $result = $conn->query($query);
                 $surname = $result->fetch_assoc()['Surname'];
             }
 
-            if($email == ""){
+            if(!isset($_POST['Email'])){
                 $query = "SELECT Email FROM Voter WHERE NationalID='$id';";
                 $result = $conn->query($query);
                 $email = $result->fetch_assoc()['Email'];
             }
 
-            if($phone == ""){
+            if(!isset($_POST['Phone'])){
                 $query = "SELECT PhoneNr FROM Voter WHERE NationalID='$id';";
                 $result = $conn->query($query);
                 $phone = $result->fetch_assoc()['PhoneNr'];
