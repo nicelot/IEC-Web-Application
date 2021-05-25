@@ -66,7 +66,7 @@ CREATE TABLE Candidate(
 );
 
 CREATE TABLE Votes(
-  VoteID int NOT NULL,
+  VoteID int NOT NULL AUTO_INCREMENT,
   Type varchar(45) NOT NULL,
   CandidateID int NOT NULL,
   PRIMARY KEY (VoteID),

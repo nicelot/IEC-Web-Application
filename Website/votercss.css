@@ -1,0 +1,162 @@
+.formlog {
+    padding: 15px 0;
+    display: flex;
+    flex-flow: column;
+    width: 400px;
+}
+
+.formloghead{
+    margin: 0;
+    padding: 25px 0;
+    font-size: 22px;
+    border-bottom: 1px solid #ebebeb;
+    color: #666666;
+}
+
+h2 {
+    margin: 0;
+    padding: 25px 0;
+    font-size: 22px;
+    border-bottom: 1px solid #ebebeb;
+    color: #666666;
+    background-color: #FFFFFF;
+}
+
+.formlab{
+   /* color: black;
+    -webkit-text-fill-color: white; !* Will override color (regardless of order) *!
+    -webkit-text-stroke-width: 0.5px;
+    -webkit-text-stroke-color: black;*/
+    color: white;
+}
+
+button{
+    display: inline-block;
+    text-decoration: none;
+    background-color: #1155bd;
+    font-weight: bold;
+    font-size: 14px;
+    border: none;
+    border-radius: 5px;
+    color: #FFFFFF;
+    padding: 10px 15px;
+    margin: 15px 0;
+    width: 300px;
+    justify-content: center;
+    align-content: center;
+}
+
+button:hover{
+    background-color: #002b6e;
+}
+
+.formcan {
+    padding: 15px 0;
+    display: flex;
+    flex-flow: column;
+    width: 400px;
+    background: #3f69a8;
+    margin: 20px;
+    border-radius: 5px;
+}
+
+.canlab{
+    width: 80%;
+    margin-right: 10%;
+    margin-left: 10%;
+}
+
+#regcan{
+    color: white;
+    background-color: #1155bd;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    width: 60%;
+    margin-right: 19%;
+    margin-left: 19%;
+}
+
+#regcan:hover{
+    background-color: #002b6e;
+}
+
+#regcand{
+    color: white;
+    background-color: #1155bd;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    width: 60%;
+    margin-right: 19%;
+    margin-left: 19%;
+}
+
+#regcand:hover{
+    background-color: #002b6e;
+}
+
+hr.new4 {
+    border: 1px solid #002b6e;
+    width: 80%;
+}
+
+#regvot{
+    color: white;
+    background-color: #1155bd;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    width: 60%;
+    margin-right: 19%;
+    margin-left: 19%;
+}
+
+#regvot:hover{
+    background-color: #002b6e;
+}
+
+#upvote{
+    color: white;
+    background-color: #1155bd;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    width: 60%;
+    margin-right: 19%;
+    margin-left: 19%;
+}
+
+#upvote:hover{
+    background-color: #002b6e;
+}
+
+#upmun{
+    color: white;
+    background-color: #1155bd;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    width: 60%;
+    margin-right: 19%;
+    margin-left: 19%;
+}
+
+#upmun:hover{
+    background-color: #002b6e;
+}
+
+#manacc{
+    color: white;
+    background-color: #1155bd;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    width: 60%;
+    margin-right: 19%;
+    margin-left: 19%;
+}
+
+#manacc:hover{
+    background-color: #002b6e;
+}

@@ -72,28 +72,37 @@
 ?>
 
 <html>
-	<head>
-		<title>Account Management</title>
-	</head>
-	<body>
-		<center>
-            <div style="background-color: gray; width: 225px; height: 310px;margin-top:25px" id="Register Voter">
-                <h2>Manage Account</h2>
-                <form method="POST" action="account.php" enctype="multipart/form-data">
-                    <label id="Name-Label">Name: </label><br>
-                    <input name="Name" type="text"><br>
-                    <label id="Surname-Label">Surname: </label><br>
-                    <input name="Surname" type="text"><br>
-                    <label id="Municipality-Label">Municipality: </label><br>
-                    <input name="Municipality" type="text"><br>
-                    <label id="Email-Label">Email: </label><br>
-                    <input name="Email" type="text"><br>
-                    <label id="Phone-Label">Phone: </label><br>
-                    <input name="Phone" type="text"><br><br>
-                    <input type="submit" value="Update">
-                    <input hidden name="Action" value="edit">
-                </form>
-            </div>
-        </center>
-	</body>
+<head>
+  <title>Account Management</title>
+  <link href="style.css" rel="stylesheet" type="text/css">
+  <link href="votercss.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
+</head>
+<body>
+<nav class="navtop">
+  <div>
+    <h1>Electoral Commission of South Africa</h1>
+    <a href="results.php"><i class="fas fa-poll-h"></i>Results</a>
+  </div>
+</nav>
+<center>
+  <div id="Register Voter">
+    <h2>Manage Account</h2>
+    <form method="POST" class="formcan" action="account.php" enctype="multipart/form-data">
+      <label class ="formlab" id="Name-Label">Name: </label><br>
+      <input class="canlab" name="Name" type="text"><br>
+      <label class ="formlab" id="Surname-Label">Surname: </label><br>
+      <input class="canlab" name="Surname" type="text"><br>
+      <label class ="formlab" id="Municipality-Label">Municipality: </label><br>
+      <input class="canlab" name="Municipality" type="text"><br>
+      <label class ="formlab" id="Email-Label">Email: </label><br>
+      <input class="canlab" name="Email" type="text"><br>
+      <label class ="formlab" id="Phone-Label">Phone: </label><br>
+      <input class="canlab" name="Phone" type="text"><br><br>
+      <input id="manacc" class="canlab" type="submit" value="Update">
+      <input hidden name="Action" value="edit">
+    </form>
+  </div>
+</center>
+</body>
 </html>

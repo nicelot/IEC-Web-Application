@@ -4,7 +4,7 @@
         header("location: login.php");
     }
 	require('connect.php');
-    
+
     if(isset($_POST['Action'])){
     	if($_POST['Action'] == 'edit'){
             $oldID = $_POST['oldID'];
@@ -40,28 +40,38 @@
 ?>
 
 <html>
-    <head>
-        <title>Municipality Management</title>
-    </head>
-    <body>
-        <center>
-            <div style="background-color: gray; width: 200px; height: 375px;margin-top:25px" id="Register Voter">
-                <h2>Update Municipalities</h2>
-                <form method="POST" action="municipalities.php" enctype="multipart/form-data">
-                    <p style="margin-top:-10px">Update municipality by ID, leave field blank to remain unchanged.</p>
-                    <label id="Municipality-Label">Municipality (ID)</label>
-                    <input required name="oldID" type="text"><br><br>
-                    <label id="ID-Label">ID:</label><br>
-                    <input name="ID" type="text"><br>
-                    <label id="Name-Label">Name:</label><br>
-                    <input name="Name" type="text"><br>
-                    <label id="Name-Label">Type:</label><br>
-                    <input name="Type" type="text"><br><br>
-                    <input type="submit" value="Update">
-                    <input hidden name="Action" value="edit">
-                </form>
-                <?php echo "<h3 style=\"color: red\">$msg</h3>" ?>
-            </div>
-        </center>
-    </body>
+<head>
+  <title>Municipality Management</title>
+  <link href="style.css" rel="stylesheet" type="text/css">
+  <link href="votercss.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
+</head>
+<body>
+<nav class="navtop">
+  <div>
+    <h1>Electoral Commission of South Africa</h1>
+    <a href="results.php"><i class="fas fa-poll-h"></i>Results</a>
+  </div>
+</nav>
+<center>
+  <div id="Register Voter">
+    <h2>Update Municipalities</h2>
+    <form method="POST" class="formcan" action="municipalities.php" enctype="multipart/form-data">
+      <p style="color: #002b6e; font-weight: bold;">Update municipality by ID, leave field blank to remain unchanged.</p>
+      <label class ="formlab" id="Municipality-Label">Municipality (ID)</label>
+      <input required class="canlab" name="oldID" type="text"><br>
+      <hr class="new4"><br>
+      <label class ="formlab" id="ID-Label">ID:</label><br>
+      <input class="canlab" name="ID" type="text"><br>
+      <label class ="formlab" id="Name-Label">Name:</label><br>
+      <input class="canlab" name="Name" type="text"><br>
+      <label class ="formlab" id="Name-Label">Type:</label><br>
+      <input class="canlab" name="Type" type="text"><br><br>
+      <input id="upmun" class="canlab" type="submit" value="Update">
+      <input class="canlab" hidden name="Action" value="edit">
+    </form>
+    <?php echo "<h3 style=\"color: red\">$msg</h3>" ?>
+  </div>
+</center>
+</body>
 </html>

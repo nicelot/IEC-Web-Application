@@ -91,47 +91,58 @@
 ?>
 
 <html>
-	<head>
-		<title>Candidate Management</title>
-	</head>
-	<body>
-		<center>
-            <div style="background-color: gray; width: 225px; height: 260px;margin-top:25px" id="Register Voter">
-                <h2>Register Candidate</h2>
-                <form method="POST" action="candidates.php" enctype="multipart/form-data">
-                    <label id="Name-Label">Name: </label><br>
-                    <input required name="Name" type="text"><br>
-                    <label id="Surname-Label">Surname: </label><br>
-                    <input required name="Surname" type="text"><br>
-                    <label id="Municipality-Label">Municipality: </label><br>
-                    <input required name="Municipality" type="text"><br>
-                    <label id="Party-Label">Party: </label><br>
-                    <input required name="Party" type="text"><br><br>
-                    <input type="submit" value="Register"><br>
-                    <?php echo "<h3 style=\"color: red\">$msg</h3>" ?>
-                    <input hidden name="Action" value="create">
-                </form>
-            </div>
-            <div style="background-color: gray; width: 225px; height: 415px;margin-top:25px" id="Register Voter">
-                <h2>Update Candidate</h2>
-                <p style="margin-top:-20px">Update candidate by name and surname, leave field blank to remain unchanged.</p>
-                <form method="POST" action="candidates.php" enctype="multipart/form-data">
-                    <label id="oldName-Label">Name: </label><br>
-                    <input required name="oldName" type="text"><br>
-                    <label id="oldSurname-Label">Surname: </label><br>
-                    <input required name="oldSurname" type="text"><br><br>
-                    <label id="Name-Label">Name: </label><br>
-                    <input name="Name" type="text"><br>
-                    <label id="Surname-Label">Surname: </label><br>
-                    <input name="Surname" type="text"><br>
-                    <label id="Municipality-Label">Municipality: </label><br>
-                    <input name="Municipality" type="text"><br>
-                    <label id="Party-Label">Party: </label><br>
-                    <input name="Party" type="text"><br><br>
-                    <input type="submit" value="Update">
-                    <input hidden name="Action" value="edit">
-                </form>
-            </div>
-        </center>
-	</body>
+<head>
+  <title>Candidate Registration</title>
+  <link href="style.css" rel="stylesheet" type="text/css">
+  <link href="votercss.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
+</head>
+<body>
+<nav class="navtop">
+  <div>
+    <h1>Electoral Commission of South Africa</h1>
+    <a href="results.php"><i class="fas fa-poll-h"></i>Results</a>
+  </div>
+</nav>
+<center>
+  <div id="Register Voter">
+    <h2>Register Candidate</h2>
+    <form method="POST" class="formcan" action="register.php" enctype="multipart/form-data">
+      <label class ="formlab">Name: </label><br>
+      <input required class="canlab" name="Name" type="text"><br>
+      <label class ="formlab">Surname: </label><br>
+      <input required class="canlab" name="Surname" type="text"><br>
+      <label class ="formlab">Municipality: </label><br>
+      <input required class="canlab" name="Municipality" type="text"><br>
+      <label class ="formlab">Party: </label><br>
+      <input required class="canlab" name="Party" type="text"><br><br>
+      <input id="regcand" class="canlab" type="submit" value="Register">
+      <?php echo "<h3 style=\"color: red\">$msg</h3>" ?>
+      <input hidden name="Action" value="create">
+    </form>
+  </div>
+  <div id="Register Candidate">
+    <h2>Update Candidate</h2>
+    <p style="color: #002b6e; font-weight: bold;">Update candidate by name and surname, leave field blank to remain unchanged.</p>
+    <form method="POST" class="formcan" action="register.php" enctype="multipart/form-data">
+      <label class ="formlab" id="oldName-Label">Name: </label><br>
+      <input required class="canlab" name="oldName" type="text"><br>
+      <label class ="formlab" id="oldSurname-Label">Surname: </label><br>
+      <input required class="canlab" name="oldSurname" type="text"><br>
+      <hr class="new4"><br>
+      <label class ="formlab" id="Name-Label">Name: </label><br>
+      <input required class="canlab" name="Name" type="text"><br>
+      <label class ="formlab" id="Surname-Label">Surname: </label><br>
+      <input required class="canlab" name="Surname" type="text"><br>
+      <label class ="formlab" id="Municipality-Label">Municipality: </label><br>
+      <input required class="canlab" name="Municipality" type="text"><br>
+      <label class ="formlab" id="Party-Label">Party: </label><br>
+      <input required class="canlab" name="Party" type="text"><br><br>
+      <input id="regcan" class="canlab" type="submit" value="Register">
+      <?php echo "<h3 style=\"color: red\">$msg</h3>" ?>
+      <input hidden name="Action" value="edit">
+    </form>
+  </div>
+</center>
+</body>
 </html>

@@ -101,53 +101,62 @@
 ?>
 
 <html>
-	<head>
-		<title>Voter Management</title>
-	</head>
-	<body>
-		<center>
-            <div style="background-color: gray; width: 225px; height: 375px;margin-top:25px" id="Register Voter">
-                <h2>Register voter</h2>
-                <form method="POST" action="register.php" enctype="multipart/form-data">
-                    <label id="ID-Label">ID:</label><br>
-                    <input required name="ID" type="text"><br>
-                    <label id="Name-Label">Name: </label><br>
-                    <input required name="Name" type="text"><br>
-                    <label id="Surname-Label">Surname: </label><br>
-                    <input required name="Surname" type="text"><br>
-                    <label id="Municipality-Label">Municipality: </label><br>
-                    <input required name="Municipality" type="text"><br>
-                    <label id="Email-Label">Email: </label><br>
-                    <input required name="Email" type="text"><br>
-                    <label id="Phone-Label">Phone: </label><br>
-                    <input required name="Phone" type="text"><br>
-                    <label id="Password-Label">Password: </label><br>
-                    <input required name="Password" type="Password"><br><br>
-                    <input type="submit" value="Register">
-                    <?php echo "<h3 style=\"color: red\">$msg</h3>" ?>
-                    <input hidden name="Action" value="create">
-                </form>
-            </div>
-            <div style="background-color: gray; width: 225px; height: 375px;margin-top:25px" id="Register Voter">
-                <h2>Update voter</h2>
-                <p style="margin-top:-20px">Update voter by ID, leave field blank to remain unchanged.</p>
-                <form method="POST" action="register.php" enctype="multipart/form-data">
-                    <label id="ID-Label">ID of Voter:</label><br>
-                    <input required name="ID" type="text"><br>
-                    <label id="Name-Label">Name: </label><br>
-                    <input name="Name" type="text"><br>
-                    <label id="Surname-Label">Surname: </label><br>
-                    <input name="Surname" type="text"><br>
-                    <label id="Municipality-Label">Municipality: </label><br>
-                    <input name="Municipality" type="text"><br>
-                    <label id="Email-Label">Email: </label><br>
-                    <input name="Email" type="text"><br>
-                    <label id="Phone-Label">Phone: </label><br>
-                    <input name="Phone" type="text"><br><br>
-                    <input type="submit" value="Update">
-                    <input hidden name="Action" value="edit">
-                </form>
-            </div>
-        </center>
-	</body>
+<head>
+    <title>Voter Registration</title>
+    <link href="style.css" rel="stylesheet" type="text/css">
+    <link href="votercss.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
+</head>
+<body>
+<nav class="navtop">
+    <div>
+        <h1>Electoral Commission of South Africa</h1>
+        <a href="results.php"><i class="fas fa-poll-h"></i>Results</a>
+    </div>
+</nav>
+<center>
+    <div id="Register Voter">
+        <h2>Register voter</h2>
+        <form method="POST" class="formcan" action="register.php" enctype="multipart/form-data">
+            <label id="ID-Label" class ="formlab">ID:</label><br>
+            <input required class="canlab" name="ID" type="text"><br>
+            <label id="Name-Label" class ="formlab">Name: </label><br>
+            <input required class="canlab" name="Name" type="text"><br>
+            <label id="Surname-Label" class ="formlab">Surname: </label><br>
+            <input required class="canlab" name="Surname" type="text"><br>
+            <label id="Municipality-Label" class ="formlab">Municipality: </label><br>
+            <input required class="canlab" name="Municipality" type="text"><br>
+            <label id="Email-Label" class ="formlab">Email: </label><br>
+            <input required class="canlab" name="Email" type="text"><br>
+            <label id="Phone-Label" class ="formlab">Phone: </label><br>
+            <input required class="canlab" name="Phone" type="text"><br>
+            <label id="Password-Label"class ="formlab">Password: </label><br>
+            <input required class="canlab" name="Password" type="Password"><br><br>
+            <input id="regvot" class="canlab" type="submit" value="Register">
+            <!--<?php echo "<h3 style=\"color: red\">$msg</h3>" ?>-->
+            <input hidden name="Action" value="create">
+        </form>
+    </div>
+    <div id="Register Voter">
+        <h2>Update voter</h2>
+        <p style="color: #002b6e; font-weight: bold;">Update voter by ID, leave field blank to remain unchanged.</p>
+        <form method="POST" class="formcan" action="register.php" enctype="multipart/form-data">
+            <label id="ID-Label" class ="formlab">ID of Voter:</label><br>
+            <input required class="canlab" name="ID" type="text"><br>
+            <label id="Name-Label" class ="formlab">Name: </label><br>
+            <input class="canlab" name="Name" type="text"><br>
+            <label id="Surname-Label" class ="formlab">Surname: </label><br>
+            <input class="canlab" name="Surname" type="text"><br>
+            <label id="Municipality-Label" class ="formlab">Municipality: </label><br>
+            <input class="canlab" name="Municipality" type="text"><br>
+            <label id="Email-Label" class ="formlab">Email: </label><br>
+            <input class="canlab" name="Email" type="text"><br>
+            <label id="Phone-Label" class ="formlab">Phone: </label><br>
+            <input class="canlab" name="Phone" type="text"><br><br>
+            <input id="upvote" class="canlab" type="submit" value="Update">
+            <input hidden name="Action" value="edit">
+        </form>
+    </div>
+</center>
+</body>
 </html>

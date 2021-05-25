@@ -6,16 +6,25 @@
 ?>
 
 <html>
-    <head>
-        <title>Voter Dashboard</title>
-    </head>
-    <body>
-        <center>
-            <div style="background-color: gray; width: 200px; height: 200px;margin-top:50px" id="Register Voter">
-                <h2 style="padding-top: 25px">Dashboard</h2>
-                <a href="account.php"><button style="margin-top:0px;width: 170px; height:35px;">Manage Account</button></a>
-                <a href="vote.php"><button style="margin-top:15px;width: 170px; height:35px;">Vote</button></a>
-            </div>
-        </center>
-    </body>
+<head>
+  <title>Voter Dashboard</title>
+  <link href="style.css" rel="stylesheet" type="text/css">
+  <link href="votercss.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
+</head>
+<body>
+<nav class="navtop">
+  <div>
+    <h1>Electoral Commission of South Africa</h1>
+    <a href="results.php"><i class="fas fa-poll-h"></i>Results</a>
+  </div>
+</nav>
+<center>
+  <div class="formcan" id="Register Voter">
+    <h2>Dashboard</h2>
+    <a href="account.php"><button>Manage Account</button></a>
+    <a href="vote.php"><button>Vote</button></a>
+  </div>
+</center>
+</body>
 </html>
