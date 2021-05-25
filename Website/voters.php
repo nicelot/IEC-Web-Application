@@ -91,7 +91,7 @@
 
 <html>
 	<head>
-		<title>Voter Registration</title>
+		<title>Voter Management</title>
 	</head>
 	<body>
 		<center>

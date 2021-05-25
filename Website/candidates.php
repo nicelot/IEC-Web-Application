@@ -8,33 +8,26 @@
     //Candidate (Name, Surname, PartyId, Type, MunicipalityId)
     if(isset($_POST['Action'])){
     	if($_POST['Action'] == 'create'){
-		    $id = $_POST['ID'];
-	        $name = $_POST['Name'];
+		    $name = $_POST['Name'];
+            $surname = $_POST['Surame'];
 	        $municipality = $_POST['Municipality'];
-            $surname = $_POST['Surname'];
-			$email = $_POST['Email'];
-	        $phone = $_POST['Phone'];
-	        $password = $_POST['Password'];
-
-	        $query = "INSERT INTO `User` (Type, Name, Email) VALUES ('Voter', '$name', '$email')";
-	        $result = $conn->query($query);
-
-	        $query = "SELECT UserID FROM User WHERE Email='$email'";
-	        $result = $conn->query($query);
-	        $UserID = $result->fetch_assoc()['UserID'];
+			$party = $_POST['Party'];
+	        $type = $_POST['Type'];
 
 	        $query = "SELECT MunicipalityID FROM Municipality WHERE Name='$municipality'";
 	        $result = $conn->query($query);
 	        $muniID = $result->fetch_assoc()['MunicipalityID'];
 
-	        $query = "INSERT INTO `Voter` (NationalID, Name, Surname, Password, Email, PhoneNr, MunicipalityId, UserId, has_voted) VALUES ('$id', '$name', '$surname', '$password', '$email', '$phone', '$muniID', '$UserID', 0);";
+            $query = "SELECT PartyID FROM Party WHERE Name='$party'";
+            $result = $conn->query($query);
+            $partyID = $result->fetch_assoc()['PartyID'];
+
+	        $query = "INSERT INTO Candidate (Name, Surname, PartyId, Type, MunicipalityId) VALUES ('$name', '$surname', '$partyID', '$type', '$muniID');";
 	        $result = $conn->query($query);
 	        if($result){
-	        	$msg = "User registered!";
+	        	$msg = "Candidate registered!";
 	        }else{
-	        	$msg = "Failed to register user!";
-                $query = "DELETE FROM User WHERE UserID = $UserID";
-                $result = $conn->query($query);
+	        	$msg = "Failed to register candidate!";
 	        }
 		}else if($_POST['Action'] == 'edit'){
             $id = $_POST['ID'];
@@ -92,7 +85,7 @@
 
 <html>
 	<head>
-		<title>Voter Registration</title>
+		<title>Candidate Management</title>
 	</head>
 	<body>
 		<center>
