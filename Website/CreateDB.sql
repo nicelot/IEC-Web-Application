@@ -68,8 +68,10 @@ CREATE TABLE Candidate(
 CREATE TABLE Votes(
   VoteID int NOT NULL,
   Type varchar(45) NOT NULL,
-  Candidate varchar(45) NOT NULL,
-  PRIMARY KEY (VoteID)
+  CandidateID int NOT NULL,
+  PRIMARY KEY (VoteID),
+  CONSTRAINT FK_CandidateID FOREIGN KEY (CandidateID)
+      REFERENCES Candidate(CandidateID)
 );
 
 CREATE TABLE Results(
