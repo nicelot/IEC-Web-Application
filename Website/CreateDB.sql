@@ -52,7 +52,7 @@ CREATE TABLE Party(
 );
 
 CREATE TABLE Candidate(
-  CandidateID int NOT NULL,
+  CandidateID int NOT NULL AUTO_INCREMENT,
   Name varchar(45),
   Surname varchar(45),
   PartyId varchar(10) NOT NULL,
@@ -141,19 +141,18 @@ VALUES ('ANC','African National Congress'),
        ('EFF','Economic Freedom Fighters'),
        ('INTP','International Party');
 
-INSERT INTO Candidate (CandidateID, Name, Surname, PartyId, Type, MunicipalityId)
-VALUES (1, 'DINEO ZANDILE', 'MASIU', 'DA', 'Metropolitan', 'CPT'),
-       (2, 'KHANYISO', 'FODO', 'EFF', 'Metropolitan', 'CPT'),
-       (3, 'DMLAMLELI MORRIS', 'MTHINI', 'ANC', 'Metropolitan', 'CPT'),
-       (4, 'BLESSING NHLAKANIPHO', 'GUMEDE', 'EFF', 'Metropolitan', 'ETH'),
-       (5, 'VINCENT THOKOZANI', 'MALINGA', 'IFP', 'Metropolitan', 'ETH'),
-       (6, 'LUNGISANI CONRAD', 'SIKAKANE', 'ANC', 'Metropolitan', 'ETH'),
-       (7, 'SIBUSISO BLESSING', 'NGQULUNGA', 'ANC', 'Local', 'MP305'),
-       (8, 'THULANI GLADWIN', 'ZWANE', 'EFF', 'Local', 'MP305'),
-       (9, 'JACK STEVEN', 'SIMONS', 'DA', 'Local', 'WC048'),
-       (10, 'NKOSIKHONA THULISANI', 'NCENGWA', 'IFP', 'Local', 'KZN294'),
-       (11, 'SANDILE JOEL', ' MNGUNI', 'EFF', 'Local', 'KZN294'),
-       (12, 'MASHAO PRIME', 'MOKGOBI', 'EFF', 'Local', 'LIM332'),
-       (13, 'MPHALELWA SHADRACK', 'MOKHABUKHI', 'ANC', 'Local', 'LIM332'),
-       (14, 'LORRAINE VALERIE', 'OPPERMAN', 'ANC', 'Local', 'WC048'),
-       (15, 'DEONAY OLIVIA', 'BALIE', 'DA', 'Local', 'NC062');
+INSERT INTO Candidate (Name, Surname, PartyId, Type, MunicipalityId)
+VALUES ('DINEO ZANDILE', 'MASIU', 'DA', 'Metropolitan', 'CPT'),
+       ('KHANYISO', 'FODO', 'EFF', 'Metropolitan', 'CPT'),
+       ('DMLAMLELI MORRIS', 'MTHINI', 'ANC', 'Metropolitan', 'CPT'),
+       ('BLESSING NHLAKANIPHO', 'GUMEDE', 'EFF', 'Metropolitan', 'ETH'),
+       ('VINCENT THOKOZANI', 'MALINGA', 'IFP', 'Metropolitan', 'ETH'),
+       ('LUNGISANI CONRAD', 'SIKAKANE', 'ANC', 'Metropolitan', 'ETH'),
+       ('SIBUSISO BLESSING', 'NGQULUNGA', 'ANC', 'Local', 'MP306'),
+       ('THULANI GLADWIN', 'ZWANE', 'EFF', 'Local', 'MP306'),
+       ('JACK STEVEN', 'SIMONS', 'DA', 'Local', 'WC047'),
+       ('NKOSIKHONA THULISANI', 'NCENGWA', 'IFP', 'Local', 'KZN238'),
+       ('SANDILE JOEL', ' MNGUNI', 'EFF', 'Local', 'KZN238'),
+       ('MASHAO PRIME', 'MOKGOBI', 'EFF', 'Local', 'LIM351'),
+       ('MPHALELWA SHADRACK', 'MOKHABUKHI', 'ANC', 'Local', 'LIM345'),
+       ('LORRAINE VALERIE', 'OPPERMAN', 'ANC', 'Local', 'WC047');

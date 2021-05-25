@@ -42,7 +42,7 @@
 							if($row['Password'] == $_POST['Password']){
 								$_SESSION['type'] = 'voter';
 								$_SESSION['auth'] = 'true';
-								header("Location: voter.php");
+								header("Location: dashboard.php");
 							}else{
 								echo '<h3 style="color: red">Incorrect email or password.</h3>';
 							}

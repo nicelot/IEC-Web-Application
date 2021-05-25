@@ -14,7 +14,6 @@
 			$email = $_POST['Email'];
 	        $phone = $_POST['Phone'];
 	        $password = $_POST['Password'];
-	        $action = $_POST['Action'];
 
 	        $query = "INSERT INTO `User` (Type, Name, Email) VALUES ('Voter', '$name', '$email')";
 	        $result = $conn->query($query);
@@ -44,7 +43,6 @@
             $email = $_POST['Email'];
             $phone = $_POST['Phone'];
             $password = $_POST['Password'];
-            $action = $_POST['Action'];
 
             if(!isset($_POST['Name'])){
                 $query = "SELECT Name FROM Voter WHERE NationalID='$id';";
